@@ -1,0 +1,113 @@
+<section class="faq sect border-b-gray">
+  <div class="container position-relative">
+
+    <div class="sect-name">
+      <span>вопросы и ответы</span>
+      <span class="sep"></span>
+      <span class="sect-name-count">11</span>
+    </div>
+
+    <div class="grid-12 gap-4 gap-lg-5">
+      <div class="col-lg-6">
+        <h2 class="h2 h2--lg">
+          Что чаще всего <span>спрашивают пациенты?</span>
+        </h2>
+        <div class="grid-12 gap-3 gap-xl-5">
+          <div class="col-lg-8 col-xxl-6">
+            <div class="faqDescr">
+              Собрали ответы на вопросы, которые чаще всего возникают перед записью: о подготовкек приему,
+              обследованиях, консультациях и работе клиники.
+            </div>
+            <a href="#" class="button button--brand-700 h-74 w-100 pr-16 pl-42 pl-xl-24 fz-15 d-none d-lg-flex"
+              data-fancybox data-src="#modalOrder">
+              Задать свой вопрос
+              <div class="icon">
+                <svg>
+                  <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-xxl-6">
+            <img src="@img/admin/faq/image-1.jpg" class="faqImage">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="accordion-wrapper">
+
+          <div class="accordion-item">
+            <div class="accordion-header active">
+              <div class="count">01</div>
+              Как проходит первая консультация?
+            </div>
+            <div class="accordion-content" style="display: block;">
+              Врач уточнит ваши жалобы, проведёт осмотр и необходимую диагностику. После этого объяснит варианты
+              лечения, срокии предварительную стоимость.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="count">02</div>
+              Можно ли заранее узнать стоимость лечения?
+            </div>
+            <div class="accordion-content">Можно...</div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="count">03</div>
+              Сколько времени займёт лечение?
+            </div>
+            <div class="accordion-content">
+              Повседневная практика показывает, что начало повседневной работы по формированию позиции обеспечивает
+              широкому
+              кругу (специалистов) участие в формировании модели развития.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="count">04</div>
+              Что делать, если сильно болит зуб?
+            </div>
+            <div class="accordion-content">Можно...</div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="count">05</div>
+              Лечите ли вы детей?
+            </div>
+            <div class="accordion-content">
+              Повседневная практика показывает, что начало повседневной работы по формированию позиции обеспечивает
+              широкому
+              кругу (специалистов) участие в формировании модели развития.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="count">06</div>
+              Можно ли оплачивать лечение поэтапно?
+            </div>
+            <div class="accordion-content">
+              Можно
+            </div>
+          </div>
+
+        </div>
+        <a href="#" class="button button--brand-700 h-74 w-100 pr-16 pl-42 pl-xl-24 fz-15 d-flex d-lg-none justify-between mt-4"
+          data-fancybox data-src="#modalOrder">
+          <span class="d-block mx-auto">Задать свой вопрос</span>
+          <div class="icon">
+            <svg>
+              <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

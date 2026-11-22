@@ -1,0 +1,161 @@
+// modal
+.modal {
+  display: none;
+  color: var(--main-color);
+  width: 800px;
+  border-radius: 8px;
+  background-color: var(--brand-050);
+
+  @media(max-width: 575px) {
+    padding: 32px 24px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 133%;
+    color: var(--brand-600);
+    padding-right: 45px;
+
+    @media(max-width: 991px) {
+      font-size: 34px;
+      line-height: 115%;
+    }
+  }
+
+  .is-close-btn {
+    background-color: var(--brand-700);
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    @media(max-width: 991px) {
+      width: 35px;
+      height: 35px;
+    }
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--brand-500);
+    }
+
+    &:active {
+      opacity: 1;
+      background-color: var(--brand-500);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      border-radius: 50%;
+      background-color: rgba(115, 142, 170, 0.29);
+    }
+
+    svg {
+      color: #fff;
+    }
+
+    .headerMenuBtn__border {
+      width: calc(100% + 12px);
+      height: calc(100% + 12px);
+      left: -6px;
+      top: -6px;
+
+      circle {
+        stroke: #587493;
+      }
+    }
+  }
+
+  &Head {
+    margin-bottom: 10px;
+  }
+}
+
+.modalForm {
+  padding-left: 30px;
+
+  @media(max-width: 991px) {
+    padding-left: 0;
+  }
+
+  .formInput {
+    height: 60px;
+  }
+}
+
+#modalQuiz {
+  width: 1000px;
+
+  .quiz__gift-image {
+    width: 60px;
+    height: 78px;
+  }
+
+  .modalQuizGift {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid var(--border-default);
+    @media(max-width: 991px){
+      margin-top: 24px;
+      padding-top: 24px;
+    }
+  }
+}
+
+.modalQuizImg {
+  border-radius: 0 180px 0 0;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  @media(max-width: 991px){
+    height: 300px;
+    width: 300px;
+    border-radius: 0 100px 0 0;
+  }
+  @media(max-width: 575px){
+    width: 100%;
+    height: 230px;
+  }
+}
+
+.modalQuiz-subtitle {
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 1px solid var(--brand-500);
+}
+
+.modalOrderImage {
+  height: auto;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.modalOrder {
+  .modalDescr {
+    max-width: 290px;
+  }
+}
+
+.fancybox__backdrop {
+  background: #5663708e;
+
+}
+.modalThanks {
+  width: 720px;
+  @media(max-width: 991px){
+    width: 350px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  h2 {
+    line-height: 120%;
+    margin-bottom: 10px;
+  }
+  .modalDescr {
+    max-width: 250px;
+  }
+}

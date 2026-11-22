@@ -1,0 +1,399 @@
+.rate {
+  &.border-b-gray {
+    @media(max-width: 991px){
+      border-bottom: none;
+    }
+  }
+  .h2 {
+    max-width: 1050px;
+    margin-bottom: 65px;
+    @media(max-width: 991px){
+      margin-bottom: 35px;
+    }
+  }
+
+  &Content {
+    &Wrap {
+      display: flex;
+      column-gap: 16px;
+
+      @media(max-width: 1199px) {
+        flex-direction: column;
+      }
+    }
+
+    &Inner {
+      display: flex;
+      width: calc(100% - 395px);
+      background-color: #fff;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      position: relative;
+
+      @media(max-width: 1199px) {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      @media(max-width: 575px) {
+        padding-top: 35px;
+        padding-bottom: 24px;
+      }
+
+      &::before {
+        top: 0;
+        content: '';
+        position: absolute;
+        width: 100vw;
+        right: 100%;
+        height: 100%;
+        background-color: #fff;
+        pointer-events: none;
+      }
+    }
+
+    &Image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 160px 0 0 0;
+
+      @media(max-width: 575px) {
+        border-radius: 70px 0 0 0;
+      }
+
+      &Wrap {
+        background-color: var(--brand-300);
+        width: 395px;
+        height: 550px;
+        flex-shrink: 0;
+        padding-left: 12px;
+
+        @media(max-width: 575px) {
+          padding-left: 6px;
+        }
+      }
+    }
+  }
+}
+
+.rateNum {
+  padding-right: 50px;
+  position: relative;
+  margin-right: 55px;
+
+  @media(max-width: 1400px) {
+    padding-right: 30px;
+    margin-right: 30px;
+  }
+
+  @media(max-width: 1199px) {
+    width: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(173, 190, 208, 0) 0%, #adbed0 50%, rgba(173, 190, 208, 0) 100%);
+  }
+}
+
+.rateNumTitle {
+  font-family: var(--second-family);
+  font-size: 230px;
+  line-height: 70%;
+  text-transform: uppercase;
+  color: #587493;
+  margin-bottom: 42px;
+
+  @media(max-width: 1400px) {
+    font-size: 160px;
+    margin-bottom: 25px;
+  }
+
+  @media(max-width: 575px) {
+    font-size: 120px;
+    margin-bottom: 15px;
+  }
+}
+
+.rateNumStars {
+  display: flex;
+  column-gap: 12px;
+  margin-bottom: 50px;
+
+  @media(max-width: 575px) {
+    column-gap: 3px;
+    margin-bottom: 15px;
+  }
+
+  svg {
+    fill: var(--brand-500);
+    width: 42px;
+    height: 42px;
+
+    @media(max-width: 1400px) {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    @media(max-width: 575px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.rateNumAv {
+  font-size: 24px;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #27384b;
+  margin-bottom: 20px;
+
+  @media(max-width: 1400px) {
+    font-size: 21px;
+  }
+
+  @media(max-width: 575px) {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+}
+
+.rateNumDescr {
+  font-size: 16px;
+  line-height: 138%;
+  color: #27384b;
+  max-width: 220px;
+
+  @media(max-width: 575px) {
+    font-size: 9px;
+  }
+}
+
+.rateList {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.rateItem {
+  grid-column: 6 span;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:nth-child(1) {
+    padding-right: 52px;
+    padding-bottom: 50px;
+    position: relative;
+
+    @media(max-width: 1400px) {
+      padding-right: 30px;
+      padding-bottom: 30px;
+    }
+
+    @media(max-width: 575px) {
+      padding-bottom: 10px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: linear-gradient(180deg, rgba(173, 190, 208, 0) 0%, #adbed0 100%);
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  &:nth-child(2) {
+    padding-left: 52px;
+    padding-bottom: 50px;
+    position: relative;
+
+    @media(max-width: 1400px) {
+      padding-left: 30px;
+      padding-bottom: 30px;
+    }
+
+    @media(max-width: 575px) {
+      padding-bottom: 10px;
+    }
+  }
+
+  &:nth-child(3) {
+    padding-right: 52px;
+    padding-top: 50px;
+    position: relative;
+
+    @media(max-width: 1400px) {
+      padding-right: 30px;
+      padding-top: 30px;
+    }
+
+    @media(max-width: 575px) {
+      padding-top: 18px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: linear-gradient(180deg, #adbed0 0%, rgba(173, 190, 208, 0) 100%);
+      width: 1px;
+      height: 100%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(270deg, #adbed0 0%, rgba(173, 190, 208, 0) 100%);
+
+      width: 100%;
+      height: 1px;
+    }
+  }
+
+  &:nth-child(4) {
+    padding-left: 52px;
+    padding-top: 50px;
+    position: relative;
+
+    @media(max-width: 1400px) {
+      padding-left: 30px;
+      padding-top: 30px;
+    }
+
+    @media(max-width: 575px) {
+      padding-top: 18px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(270deg, rgba(173, 190, 208, 0) 0%, #adbed0 100%);
+      width: 100%;
+      height: 1px;
+    }
+
+    &::after {
+      position: absolute;
+      left: -11px;
+      top: -10px;
+      content: '';
+      width: 21px;
+      height: 21px;
+      background: url('@img/icons/rate-un.svg') no-repeat center center / contain;
+    }
+  }
+}
+
+.rateItemLogo {
+  max-height: 343px;
+  max-width: 240px;
+  margin-bottom: 30px;
+  display: flex;
+
+  @media(max-width: 1400px) {
+    margin-bottom: 15px;
+  }
+
+  @media(max-width: 575px) {
+    max-height: 23px;
+  }
+
+  &:hover {
+    opacity: .85;
+  }
+}
+
+.rateItemLinkW {
+  display: flex;
+  column-gap: 40px;
+  align-items: flex-end;
+
+  @media(max-width: 575px) {
+    column-gap: 19px;
+  }
+}
+
+.rateItemCount {
+  font-family: var(--second-family);
+  font-size: 64px;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #587493;
+
+  @media(max-width: 1400px) {
+    font-size: 52px;
+  }
+
+  @media(max-width: 575px) {
+    font-size: 36px;
+    line-height: 120%;
+  }
+}
+
+.rateItemLink {
+  font-size: 14px;
+  line-height: normal;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-style: dotted;
+  color: #27384b;
+  position: relative;
+  bottom: 15px;
+
+  @media(max-width: 1400px) {
+    bottom: 10px;
+  }
+
+  @media(max-width: 575px) {
+    font-size: 12px;
+  }
+}
+
+.rateContentSect {
+  overflow: hidden;
+}
+
+.rateNumW {
+  @media(max-width: 1199px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-bottom: 30px;
+  }
+
+  .rateNum {
+    @media(max-width: 1199px) {
+      grid-column: 6 span;
+    }
+  }
+
+  .rateContentImageWrap {
+    @media(max-width: 1199px) {
+      grid-column: 6 span;
+      width: 100%;
+    }
+
+    @media(max-width: 767px) {
+      height: 400px;
+    }
+
+    @media(max-width: 575px) {
+      height: 220px;
+    }
+  }
+}

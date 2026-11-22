@@ -1,0 +1,81 @@
+<section class="dir sect border-b-gray">
+  <div class="container position-relative">
+    <div class="sect-name">
+      <span>основатель клиники</span>
+      <span class="sep"></span>
+      <span class="sect-name-count">06</span>
+    </div>
+    <div class="grid-12">
+      <div class="col-lg-6 col-xxl-5">
+        <h2 class="h2 h2--lg mb-2">
+          Лечение <span>начинается с&nbsp;доверия</span>
+        </h2>
+        <div class="dirDescr text-cursive">
+          “Для нас важно, чтобы пациент понимал, что и зачем мы делаем. Поэтому мы подробно объясняем план лечения и
+          вместе выбираем подходящий вариант.”
+        </div>
+        <div class="d-none d-lg-block">
+          <div class="dirName">
+            Варданян Варужан Артурович
+          </div>
+          <div class="dirWorkList">
+            <ul>
+              <li>Основатель My Clinic</li>
+              <li>главный врач</li>
+              <li>врач стоматолог - ортопед</li>
+            </ul>
+          </div>
+          <img src="@img/admin/dir/logo.png" alt="logo" class="dirLogo">
+          <a href="#" class="button button--border-strong h-74 pr-16 pl-42 fz-16">
+            Узнать больше о клинике
+            <div class="icon">
+              <svg>
+                <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xxl-7">
+        <div class="dirVideo">
+          <a href="@img/admin/video-4.mp4" class="dirVideoImgW" data-fancybox>
+            <img src="@img/admin/dir/poster.jpg" alt="image" class="dirVideoImg">
+            <button class="video-play">
+              <svg>
+                <use xlink:href="img/icons/icons.svg#play"></use>
+              </svg>
+            </button>
+          </a>
+          <div class="dirVideoFooter">
+            <span>видеобращение</span>
+            <span>02:20</span>
+          </div>
+        </div>
+        <div class="d-block d-lg-none mt-3">
+          <div class="dirName">
+            Варданян Варужан Артурович
+          </div>
+          <div class="d-flex gap-4 align-center mb-3">
+            <div class="dirWorkList mb-0">
+              <ul>
+                <li>Основатель My Clinic</li>
+                <li>главный врач</li>
+                <li>врач стоматолог - ортопед</li>
+              </ul>
+            </div>
+            <img src="@img/admin/dir/logo.png" alt="logo" class="dirLogo mb-0">
+          </div>
+
+          <a href="#" class="button button--border-strong h-74 pr-16 pl-42 fz-16">
+            Узнать больше о клинике
+            <div class="icon">
+              <svg>
+                <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

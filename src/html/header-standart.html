@@ -1,0 +1,29 @@
+<!-- Header -->
+<header class="header header-standart" id="header">
+  <div class="container">
+
+    <div class="headerW">
+      @@include('header/logo.html',{})
+      <div class="d-block d-xl-none ml-auto">
+        @@include('header/bvi-btn.html',{})
+      </div>
+      @@include('header/menu-btn.html',{})
+      @@include('header/nav.html',{})
+
+      <div class="headerContacts d-none d-xl-flex">
+        <div class="d-flex flex-column align-end">
+          <div class="text--md">г. Краснодар, ул. 40 лет победы 178к1</div>
+          <div class="text-champagne text--md">Ежедневно с 09.00 до 20.00</div>
+        </div>
+        <div class="d-flex flex-column">
+          <a class="text--md" href="tel:+79615205405">+7 (961) 520-54-05</a>
+          <a class="text-champagne hover-blue text--md" href="#" data-fancybox data-src="#modalOrder">Перезвоните
+            мне</a>
+        </div>
+        @@include('header/bvi-btn.html',{})
+      </div>
+    </div>
+
+  </div>
+</header>
+@@include('menu.html',{})
