@@ -10,7 +10,7 @@ export const path = {
 		js: `./`,
 		css: `./`,
 		html: `${buildFolder}/`,
-		images: `${buildFolder}/img/`,
+		images: `./assets/img/`,
 		fonts: `${buildFolder}/fonts/`,
 		files: `${buildFolder}/files/`
 	},
@@ -30,7 +30,7 @@ export const path = {
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
 		files: `${srcFolder}/files/**/*.*`
 	},
-	clean: [buildFolder, './assets/img', './assets/fonts'],
+	clean: [buildFolder, './assets/img'],
 	buildFolder: buildFolder,
 	srcFolder: srcFolder,
 	rootFolder: rootFolder,

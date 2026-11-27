@@ -267,8 +267,10 @@
     padding-bottom: 100px;
   }
 
-  .container {
-    // height: 100%;
+  &>.container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &.active {
@@ -606,6 +608,7 @@
         position: absolute;
         right: 0;
         top: -12px;
+        pointer-events: none;
       }
       svg {
         width: 38px;

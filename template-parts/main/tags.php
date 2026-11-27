@@ -2,63 +2,22 @@
   <div class="marquee-wrapper">
 
     <ul class="d-flex gap-3 tags-list marquee-content">
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Ребенок боится
-          стоматолога</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Не хватает зубов</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Неровные зубы</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Хочу красивую
-          улыбку</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Зуб разрушен</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Зуб потемнел</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Болит зуб</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Ребенок боится
-          стоматолога</a>
-      </li>
+
+      <?php $items = carbon_get_the_post_meta('main_tags_items'); ?>
+      <?php foreach ($items as $item) : ?>
+        <li>
+          <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="<?php echo $item['link']; ?>"><?php echo $item['text']; ?></a>
+        </li>
+      <?php endforeach; ?>
 
     </ul>
     <ul class="d-flex gap-3 tags-list marquee-content">
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Ребенок боится
-          стоматолога</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Не хватает зубов</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Неровные зубы</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Хочу красивую
-          улыбку</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Зуб разрушен</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Зуб потемнел</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Болит зуб</a>
-      </li>
-      <li>
-        <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="#">Ребенок боится
-          стоматолога</a>
-      </li>
+      <?php $items = carbon_get_the_post_meta('main_tags_items'); ?>
+      <?php foreach ($items as $item) : ?>
+        <li>
+          <a class="button button--brand-100 fz-20 fz-lg-14 text-no-uppercase text-brand-700 px-24" href="<?php echo $item['link']; ?>"><?php echo $item['text']; ?></a>
+        </li>
+      <?php endforeach; ?>
 
     </ul>
 

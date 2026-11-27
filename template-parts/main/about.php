@@ -1,3 +1,9 @@
+<?php
+$title = carbon_get_the_post_meta('main_about_title');
+$descr = carbon_get_the_post_meta('main_about_descr');
+$image = carbon_get_the_post_meta('main_about_img');
+$items = carbon_get_the_post_meta('main_about_items');
+?>
 <section class="about sect pt-0 pb-0 border-b-gray">
   <div class="grid-12">
     <div class="col col-lg-7 about-main-left">
@@ -11,69 +17,64 @@
           Каждая цифра —
         </div>
         <h2 class="h2">
-          это опыт врачей, доверие пациентов и <span>тысячи здоровых улыбок</span>
+          <?= $title; ?>
         </h2>
         <div class="text--lg text-secondary mb-70 mb-xl-24" style="max-width: 500px;">
-          Мы заботимся о здоровье зубов и вашем комфорте, предлагая комплексное лечение с использованием современных
-          технологий и высокого сервиса.
+          <?= $descr; ?>
         </div>
         <div class="about-main-image">
-          <img class="aboutImg" src="@img/admin/about/main.jpg" alt="image">
+          <img class="aboutImg" src="<?= $image; ?>" alt="image">
         </div>
       </div>
     </div>
     <div class="col col-lg-5">
       <div class="aboutList">
 
-        <div class="aboutItem">
-          <div class="aboutItemTitle mb-0 mb-lg-1">с 2020 года</div>
-          <div class="aboutItemDescr">
-            Заботимся о здоровье и красоте улыбок наших пациентов.
-          </div>
-        </div>
+        <?php
+        $count = 0;
+        foreach ($items as $item) :
+          $count++;
+          if ($count == 4) {
+        ?>
+            <div class="aboutItem aboutItem--last">
+              <div class="aboutItemTitle text-white mb-3"><?php echo $item['title']; ?></div>
+              <ul class="aboutItemList text-white" style="max-width: 350px;">
 
-        <div class="aboutItem">
-          <div class="d-flex flex-column">
-            <div class="aboutItemTitle mb-0 mb-lg-1">30 000+</div>
-            <div class="aboutItemSubtitle">
-              пациентов
+                <?php $inner_list = carbon_get_the_post_meta('main_about_last_list'); ?>
+                <?php foreach ($inner_list as $inner_item) : ?>
+                  <li>
+                    <?php echo $inner_item['text']; ?>
+                  </li>
+                <?php endforeach; ?>
+
+              </ul>
             </div>
-          </div>
+          <?php
+          } else {
+          ?>
+            <div class="aboutItem">
+              <div class="d-flex flex-column">
+                <div class="aboutItemTitle mb-0 mb-lg-1"><?php echo $item['title']; ?></div>
+                <?php
+                if (!empty($item['subtitle'])) {
+                ?>
+                  <div class="aboutItemSubtitle">
+                    <?php echo $item['subtitle']; ?>
+                  </div>
+                <?php
+                }
+                ?>
+              </div>
 
-          <div class="aboutItemDescr">
-            Уже доверили нам лечение и восстановление улыбки.
-          </div>
-        </div>
-
-        <div class="aboutItem">
-          <div class="d-flex flex-column">
-            <div class="aboutItemTitle mb-0 mb-lg-1">10</div>
-            <div class="aboutItemSubtitle">
-              специалистов
+              <div class="aboutItemDescr">
+                <?php echo $item['text']; ?>
+              </div>
             </div>
-          </div>
-          <div class="aboutItemDescr">
-            Команда врачей разных направлений для комплексного лечения.
-          </div>
-        </div>
+          <?php
+          }
+          ?>
 
-        <div class="aboutItem aboutItem--last">
-          <div class="aboutItemTitle text-white mb-3">современная клиника</div>
-          <ul class="aboutItemList text-white" style="max-width: 350px;">
-            <li>
-              Инновационное оборудование
-            </li>
-            <li>
-              Безопасность и стерильность
-            </li>
-            <li>
-              Комфорт и забота о каждом
-            </li>
-            <li>
-              Комплексный подход к лечению
-            </li>
-          </ul>
-        </div>
+        <?php endforeach; ?>
 
       </div>
     </div>

@@ -39,7 +39,8 @@
   left: 12px;
   right: 0;
   z-index: 1;
-  @media(max-width: 991px){
+
+  @media(max-width: 991px) {
     padding-left: 17px;
     padding-right: 17px;
   }
@@ -213,6 +214,10 @@
     @media(max-width: 991px) {
       padding-left: 5px;
       padding-right: 12px;
+    }
+
+    &:not(:has(.stocksCardBtn)) .wp-tabs__btn-body-text {
+      margin-bottom: 0;
     }
   }
 }

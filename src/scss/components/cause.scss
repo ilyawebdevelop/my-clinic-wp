@@ -27,8 +27,10 @@
   }
 
   &Slider {
-    overflow: visible;
-    padding-right: 50px;
+    @media(max-width: 575px) {
+      overflow: visible;
+      padding-right: 50px;
+    }
 
     .swiper-wrapper {
       counter-reset: cause-counter;
@@ -108,7 +110,8 @@
       font-size: 14px;
     }
 
-    a {
+    a,
+    div {
       display: flex;
       column-gap: 8px;
       color: var(--brand-800);
@@ -265,7 +268,8 @@
   .swiperW .swiper-scrollbar {
     margin-top: 30px;
     display: none;
-    @media(max-width: 767px){
+
+    @media(max-width: 767px) {
       display: flex;
     }
   }

@@ -1,3 +1,13 @@
+<?php
+$title = carbon_get_the_post_meta('main_cause_title');
+$main_cause_descr = carbon_get_the_post_meta('main_cause_descr');
+$main_cause_repeat = carbon_get_the_post_meta('main_cause_repeat');
+$main_cause_after_btn = carbon_get_the_post_meta('main_cause_after_btn');
+$main_cause_image = carbon_get_the_post_meta('main_cause_image');
+$main_cause_doctor_title = carbon_get_the_post_meta('main_cause_doctor_title');
+$main_cause_doctor_spec = carbon_get_the_post_meta('main_cause_doctor_spec');
+$main_cause_doctor_descr = carbon_get_the_post_meta('main_cause_doctor_descr');
+?>
 <section class="cause sect position-relative border-b-gray">
   <div class="container position-relative">
     <div class="sect-name">
@@ -8,25 +18,25 @@
     <div class="grid-12 swiperW">
       <div class="col-xl-6 col-xxl-5">
         <h2 class="h2 h2--lg mb-2 mb-xl-4">
-          Когда <span>не стоит откладывать</span> визит?
+          <?= $title; ?>
         </h2>
         <div class="causeDescr text--lg text-secondary mb-3 mb-xl-4">
-          Если вы замечаете один или несколько симптомов, лучше записаться на консультацию как можно скорее
+          <?= $main_cause_descr; ?>
         </div>
 
         <div class="causeDir d-flex d-xl-none mb-3">
           <div class="causeDirImage">
-            <img src="@img/admin/cause/dir.png" alt="image">
+            <img src="<?= $main_cause_image; ?>" alt="image">
             <div class="bg"></div>
           </div>
           <div class="causeDirContent">
             <h3 class="h3 mb-1">
-              Ткаченко Екатерина Сергеевна
+              <?= $main_cause_doctor_title; ?>
             </h3>
-            <div class="text-secondary text--md">Врач стоматолог - ортопед</div>
+            <div class="text-secondary text--md"><?= $main_cause_doctor_spec; ?></div>
             <div class="sep"></div>
             <div class="text-cursive causeDirDescr">
-              Поможем определить причину проблемы, составим понятный план лечения и&nbsp;ответим на&nbsp;ваши вопросы
+              <?= $main_cause_doctor_descr; ?>
             </div>
           </div>
         </div>
@@ -34,24 +44,12 @@
         <div class="swiper causeSlider mb-4 mb-xl-5">
           <div class="swiper-wrapper">
 
-            <div class="swiper-slide causeSlide">
-              Боль или повышенная чувствительность зубов
-            </div>
-            <div class="swiper-slide causeSlide">
-              Отек, воспаление или кровоточивость десен
-            </div>
-            <div class="swiper-slide causeSlide">
-              Скол или травма зуба
-            </div>
-            <div class="swiper-slide causeSlide">
-              Отсутствие одного или нескольких зубов
-            </div>
-            <div class="swiper-slide causeSlide">
-              Подвижность коронки, пломбы или протеза
-            </div>
-            <div class="swiper-slide causeSlide">
-              Дискомфорт
-            </div>
+            <?php foreach ($main_cause_repeat as $item) : ?>
+              <div class="swiper-slide causeSlide">
+                <?php echo $item['text']; ?>
+              </div>
+            <?php endforeach; ?>
+
           </div>
           <div class="swiper-scrollbar"></div>
         </div>
@@ -60,37 +58,39 @@
           <span>Записаться на консультацию</span>
           <div class="icon">
             <svg>
-              <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+              <use xlink:href="<?= get_template_directory_uri() . '/assets/img/icons/icons.svg#arrow-link' ?>"></use>
             </svg>
           </div>
         </button>
 
         <div class="d-flex gap-1 causeLinks">
-          <a href="#">Консультация</a>
-          <a href="#">Диагностика</a>
-          <a href="#">План лечения</a>
+
+          <?php foreach ($main_cause_after_btn as $item) : ?>
+            <div><?php echo $item['text']; ?></div>
+          <?php endforeach; ?>
+
         </div>
 
       </div>
       <div class="col-xl-6 col-xxl-7">
         <div class="causeDir d-none d-xl-flex">
           <div class="causeDirImage">
-            <img src="@img/admin/cause/dir.png" alt="image">
+            <img src="<?= $main_cause_image; ?>" alt="image">
             <div class="bg"></div>
           </div>
           <div class="causeDirContent">
             <h3 class="h3 mb-3">
-              Ткаченко Екатерина Сергеевна
+              <?= $main_cause_doctor_title; ?>
             </h3>
-            <div class="text-secondary">Врач стоматолог - ортопед</div>
+            <div class="text-secondary"><?= $main_cause_doctor_spec; ?></div>
             <div class="sep"></div>
             <div class="text-cursive causeDirDescr">
-              Поможем определить причину проблемы, составим понятный план лечения и&nbsp;ответим на&nbsp;ваши вопросы
+              <?= $main_cause_doctor_descr; ?>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <img class="causeAbstr" src="@img/bg/flower-right-bg.svg" alt="image">
+  <img class="causeAbstr" src="<?= get_template_directory_uri() . '/assets/img/bg/flower-right-bg.svg' ?>" alt="image">
 </section>

@@ -545,9 +545,10 @@
     max-width: 350px;
     padding-bottom: 30px;
 
-    @media(max-width: 991px){
+    @media(max-width: 991px) {
       padding-bottom: 0;
     }
+
     @media(max-width: 575px) {
       max-width: 100%;
     }
@@ -713,6 +714,11 @@
       top: 13px;
     }
   }
+
+  .wp-tabs__nav:not(:has(.wp-tabs__btn:nth-child(2))) {
+    display: none;
+  }
+
 }
 
 .serv-doctor-thumb-slider {

@@ -1,3 +1,10 @@
+<?php
+$main_care_title = carbon_get_the_post_meta('main_care_title');
+$main_care_descr = carbon_get_the_post_meta('main_care_descr');
+$main_care_image = carbon_get_the_post_meta('main_care_image');
+$main_care_image_descr = carbon_get_the_post_meta('main_care_image_descr');
+$main_care_adv_list = carbon_get_the_post_meta('main_care_adv_list');
+?>
 <section class="care sect border-b-gray swiperW">
   <div class="container">
 
@@ -10,20 +17,19 @@
         </div>
         <div class="sectHead">
           <h2 class="h2 h2--lg">
-            Забота чувствуется <span>в&nbsp;деталях</span>
+            <?= $main_care_title; ?>
           </h2>
         </div>
 
         <div class="careDescr fz-xl-14">
-          В My Clinic мы внимательно выслушаем вас, проведем диагностику и предложим понятный план лечения. Без сложных
-          терминов, давления и ненужных процедур.Вместе выберем решение, которое подойдёт именно вам.
+          <?= $main_care_descr; ?>
         </div>
       </div>
 
       <div class="careImageW">
-        <div class="careImageDescr line-star-vertical">забота в действии</div>
+        <div class="careImageDescr line-star-vertical"><?= $main_care_image_descr; ?></div>
         <div class="careImage">
-          <img src="@img/admin/care/image-1.jpg" alt="image">
+          <img src="<?= $main_care_image; ?>" alt="image">
         </div>
       </div>
 
@@ -31,92 +37,30 @@
 
         <div class="swiper careSlider">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
 
-              <div class="careItem">
-                <div class="careItemIcon">
-                  <span>01</span>
-                  <img src="@img/admin/care/icon-1.svg" alt="icon">
-                </div>
-                <div class="careItemContent">
-                  <h4>Подробная диагностика</h4>
-                  <div class="careItemDescr">
-                    Помогает точно определить проблему и подобрать подходящее лечение.
-                  </div>
-                </div>
-              </div>
+            <?php foreach ($main_care_adv_list as $item) :
+              $w39 = 'w-39';
+              $w70 = 'w-70';
+              $icon_width = $item['icon_width'];
+            ?>
+              <div class="swiper-slide">
 
-            </div>
-            <div class="swiper-slide">
-              <div class="careItem">
-                <div class="careItemIcon">
-                  <span>04</span>
-                  <img class="w-70" src="@img/admin/care/icon-4.svg" alt="icon">
-                </div>
-                <div class="careItemContent">
-                  <h4>Понятный план</h4>
-                  <div class="careItemDescr">
-                    До начала лечения вы узнаете этапы, сроки и стоимость.
+                <div class="careItem">
+                  <div class="careItemIcon">
+                    <span><?php echo $item['count']; ?></span>
+                    <img class="<?= $icon_width; ?>" src="<?php echo $item['icon']; ?>" alt="icon">
+                  </div>
+                  <div class="careItemContent">
+                    <h4><?php echo $item['title']; ?></h4>
+                    <div class="careItemDescr">
+                      <?php echo $item['text']; ?>
+                    </div>
                   </div>
                 </div>
+
               </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="careItem">
-                <div class="careItemIcon">
-                  <span>02</span>
-                  <img class="w-39" src="@img/admin/care/icon-2.svg" alt="icon">
-                </div>
-                <div class="careItemContent">
-                  <h4>Врачи разных направлений</h4>
-                  <div class="careItemDescr">
-                    Сложные случаи рассматриваются командой специалистов.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="careItem">
-                <div class="careItemIcon">
-                  <span>05</span>
-                  <img src="@img/admin/care/icon-5.svg" alt="icon">
-                </div>
-                <div class="careItemContent">
-                  <h4>Бережное отношение</h4>
-                  <div class="careItemDescr">
-                    Объясняем каждый этап и не торопим пациента.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="careItem">
-                <div class="careItemIcon">
-                  <span>03</span>
-                  <img class="w-70" src="@img/admin/care/icon-3.svg" alt="icon">
-                </div>
-                <div class="careItemContent">
-                  <h4>Современные технологии</h4>
-                  <div class="careItemDescr">
-                    Используем оборудование, которое помогает повысить точность и комфорт лечения.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="careItem">
-                <div class="careItemIcon">
-                  <span>06</span>
-                  <img class="w-39" src="@img/admin/care/icon-6.svg" alt="icon">
-                </div>
-                <div class="careItemContent">
-                  <h4>Лечение всей семьи</h4>
-                  <div class="careItemDescr">
-                    Принимаем взрослых и детей — заботимся о здоровье всей семьи.
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php endforeach; ?>
+
           </div>
 
         </div>

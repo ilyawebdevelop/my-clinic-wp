@@ -20,6 +20,9 @@ export const scss = () => {
 			outputStyle: 'expanded'
 		}))
 		.pipe(app.plugins.replace(/@img\//g, '../img/'))
+		// Добавляем замену пути для шрифтов
+		.pipe(app.plugins.replace(/\.\.\/img\//g, 'assets/img/'))
+		.pipe(app.plugins.replace(/\.\.\/fonts\//g, 'assets/fonts/'))
 		.pipe(
 			app.plugins.if(
 				app.isBuild,

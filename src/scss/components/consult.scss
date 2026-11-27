@@ -12,7 +12,8 @@
       padding-left: 15px;
       padding-right: 15px;
     }
-    @media(max-width: 991px){
+
+    @media(max-width: 991px) {
       padding-left: 30px;
       padding-right: 30px;
     }
@@ -22,6 +23,10 @@
     @media(max-width: 991px) {
       margin-top: 24px;
     }
+  }
+
+  .formText {
+    height: 115px;
   }
 }
 
@@ -64,13 +69,16 @@
     border-radius: 160px 0 0 0;
     position: relative;
     z-index: 1;
-    @media(max-width: 991px){
+
+    @media(max-width: 991px) {
       z-index: 2;
     }
-    @media(max-width: 767px){
+
+    @media(max-width: 767px) {
       height: 550px;
     }
-    @media(max-width: 575px){
+
+    @media(max-width: 575px) {
       height: 85vw;
       border-radius: 76px 0 0 0;
     }
@@ -83,13 +91,16 @@
   top: 45px;
   width: 275px;
   height: 622px;
-  @media(max-width: 991px){
+
+  @media(max-width: 991px) {
     z-index: 1;
   }
-  @media(max-width: 767px){
+
+  @media(max-width: 767px) {
     width: 150px;
   }
-  @media(max-width: 575px){
+
+  @media(max-width: 575px) {
     height: 100%;
   }
 }

@@ -2039,21 +2039,21 @@ html.with-fancybox body.hide-scrollbar {
 @font-face {
   font-family: Involve;
   font-display: swap;
-  src: url("../fonts/Involve-Medium.woff2") format("woff2"), url("../fonts/Involve-Medium.woff") format("woff");
+  src: url("assets/fonts/Involve-Medium.woff2") format("woff2"), url("assets/fonts/Involve-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: Involve;
   font-display: swap;
-  src: url("../fonts/Involve-Regular.woff2") format("woff2"), url("../fonts/Involve-Regular.woff") format("woff");
+  src: url("assets/fonts/Involve-Regular.woff2") format("woff2"), url("assets/fonts/Involve-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: Involve;
   font-display: swap;
-  src: url("../fonts/Involve-SemiBold.woff2") format("woff2"), url("../fonts/Involve-SemiBold.woff") format("woff");
+  src: url("assets/fonts/Involve-SemiBold.woff2") format("woff2"), url("assets/fonts/Involve-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
@@ -3109,7 +3109,7 @@ h4,
   padding-right: 45px;
   padding-left: 120px;
   font-style: italic;
-  background-image: url("../img/icons/quote.svg");
+  background-image: url("assets/img/icons/quote.svg");
   background-position: left 29px top 32px;
   background-size: 134px;
   background-repeat: no-repeat;
@@ -3117,6 +3117,10 @@ h4,
 
 .swiper-slide.navSlide {
   width: fit-content;
+}
+
+.page-template-page-service .sect-name {
+  display: none !important;
 }
 
 .fw-medium {
@@ -3597,7 +3601,7 @@ a.text-brand-700:hover svg {
     font-size: 10px;
   }
 }
-.aioseo-breadcrumbs span {
+.aioseo-breadcrumbs span:has(a) {
   text-decoration: underline;
   text-decoration-skip-ink: none;
   text-decoration-style: dotted;
@@ -3700,7 +3704,7 @@ a.text-brand-700:hover svg {
   height: 18px;
   background-repeat: no-repeat;
   flex-shrink: 0;
-  background-image: url("../img/icons/check-white.svg");
+  background-image: url("assets/img/icons/check-white.svg");
   background-position: left 6px center;
   background-size: 9px;
 }
@@ -3739,7 +3743,7 @@ a.text-brand-700:hover svg {
 
 .radio-btn input:checked + label .rect {
   background-color: #738eaa;
-  background-image: url("../img/icons/check-white.svg");
+  background-image: url("assets/img/icons/check-white.svg");
 }
 .radio-btn label {
   cursor: pointer;
@@ -3759,7 +3763,20 @@ a.text-brand-700:hover svg {
   background-position: left 7px center;
   background-repeat: no-repeat;
   background-size: 13px;
-  background-image: url("../img/icons/check-white.svg");
+  background-image: url("assets/img/icons/check-white.svg");
+}
+
+.agreement input[type=checkbox] {
+  display: none;
+}
+
+.wpcf7-form-control-wrap:has(input[type=checkbox]) {
+  display: none;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Главная сетка (Аналог .row) */
@@ -5945,7 +5962,7 @@ a.text-brand-700:hover svg {
   content: "";
   width: 10px;
   height: 15px;
-  background: url("../img/icons/arrow-down.svg") no-repeat center center/contain;
+  background: url("assets/img/icons/arrow-down.svg") no-repeat center center/contain;
 }
 
 .content--visible + .js-show-more-text::after {
@@ -6479,14 +6496,14 @@ a.text-brand-700:hover svg {
 }
 .headerNav ul li.menu-item-has-children > a {
   padding-right: 16px;
-  background-image: url("../img/icons/menu-arrow.svg");
+  background-image: url("assets/img/icons/menu-arrow.svg");
   background-repeat: no-repeat;
   background-size: 10px;
   background-position: right center;
   transition: background 0.2s linear, color 0.2s linear;
 }
 .headerNav ul li.menu-item-has-children:hover > a {
-  background-image: url("../img/icons/menu-arrow-up.svg");
+  background-image: url("assets/img/icons/menu-arrow-up.svg");
 }
 .headerNav ul li.menu-item-has-children:hover .sub-menu {
   display: block;
@@ -6557,7 +6574,7 @@ a.text-brand-700:hover svg {
   color: var(--brand-500);
 }
 .header-standart .headerNav ul li.menu-item-has-children > a, .header.fixed .headerNav ul li.menu-item-has-children > a {
-  background-image: url("../img/icons/menu-arrow-blue.svg");
+  background-image: url("assets/img/icons/menu-arrow-blue.svg");
 }
 .header-standart .headerMenuBtn, .header.fixed .headerMenuBtn {
   background-color: var(--brand-700);
@@ -6603,7 +6620,7 @@ a.text-brand-700:hover svg {
 
 .headerMenu {
   background: var(--neutral-white);
-  background-image: url("../img/menu/bg-menu.jpg");
+  background-image: url("assets/img/menu/bg-menu.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -6622,6 +6639,11 @@ a.text-brand-700:hover svg {
     padding-top: 130px;
     padding-bottom: 100px;
   }
+}
+.headerMenu > .container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .headerMenu.active {
   display: block;
@@ -6972,10 +6994,11 @@ a.text-brand-700:hover svg {
   .headerMenuTabsNav .wp-tabs__btn .arrow-btn {
     opacity: 1;
     border-color: transparent;
-    background: url("../img/icons/plus-dark.svg") no-repeat center center/15px;
+    background: url("assets/img/icons/plus-dark.svg") no-repeat center center/15px;
     position: absolute;
     right: 0;
     top: -12px;
+    pointer-events: none;
   }
 }
 .headerMenuTabsNav .wp-tabs__btn .arrow-btn svg {
@@ -7004,7 +7027,7 @@ a.text-brand-700:hover svg {
 }
 @media (max-width: 991px) {
   .headerMenuTabsNav .wp-tabs__btn.active .arrow-btn {
-    background: url("../img/icons/minus-dark.svg") no-repeat center center/15px;
+    background: url("assets/img/icons/minus-dark.svg") no-repeat center center/15px;
   }
 }
 .headerMenuTabsNav .wp-tabs__btn.active > div {
@@ -7622,7 +7645,7 @@ a.text-brand-700:hover svg {
 }
 
 .intro-doctor-image-wrap {
-  background: url("../img/intro/intro-doctor-bg.jpg") no-repeat center center/cover;
+  background: url("assets/img/intro/intro-doctor-bg.jpg") no-repeat center center/cover;
   width: fit-content;
   height: 670px;
   width: 100%;
@@ -8673,9 +8696,11 @@ a.text-brand-700:hover svg {
     line-height: 130%;
   }
 }
-.causeSlider {
-  overflow: visible;
-  padding-right: 50px;
+@media (max-width: 575px) {
+  .causeSlider {
+    overflow: visible;
+    padding-right: 50px;
+  }
 }
 .causeSlider .swiper-wrapper {
   counter-reset: cause-counter;
@@ -8749,15 +8774,18 @@ a.text-brand-700:hover svg {
     font-size: 14px;
   }
 }
-.causeLinks a {
+.causeLinks a,
+.causeLinks div {
   display: flex;
   column-gap: 8px;
   color: var(--brand-800);
 }
-.causeLinks a:hover {
+.causeLinks a:hover,
+.causeLinks div:hover {
   color: var(--brand-700);
 }
-.causeLinks a:not(:last-child)::after {
+.causeLinks a:not(:last-child)::after,
+.causeLinks div:not(:last-child)::after {
   content: "/";
 }
 .causeDir {
@@ -9643,6 +9671,9 @@ a.text-brand-700:hover svg {
     top: 13px;
   }
 }
+.serv-doctor .wp-tabs__nav:not(:has(.wp-tabs__btn:nth-child(2))) {
+  display: none;
+}
 
 .serv-doctor-thumb-slider {
   max-height: 562px;
@@ -10193,10 +10224,14 @@ a.text-brand-700:hover svg {
   border-right: 1px solid #dce4eb;
 }
 
+.result .swiper-fade .swiper-slide .swiper-slide {
+  pointer-events: auto;
+}
+
 .dirDescr {
   padding-top: 27px;
   padding-left: 43px;
-  background: url("../img/icons/quote.svg") no-repeat left top 10px/134px;
+  background: url("assets/img/icons/quote.svg") no-repeat left top 10px/134px;
   font-size: 20px;
   line-height: 165%;
   padding-bottom: 56px;
@@ -10578,7 +10613,7 @@ a.text-brand-700:hover svg {
   content: "";
   width: 16px;
   height: 105px;
-  background: url("../img/icons/line-star-vertical.svg") no-repeat center center/contain;
+  background: url("assets/img/icons/line-star-vertical.svg") no-repeat center center/contain;
 }
 .careList {
   display: grid;
@@ -11477,7 +11512,7 @@ a.text-brand-700:hover svg {
   content: "";
   width: 21px;
   height: 21px;
-  background: url("../img/icons/rate-un.svg") no-repeat center center/contain;
+  background: url("assets/img/icons/rate-un.svg") no-repeat center center/contain;
 }
 
 .rateItemLogo {
@@ -11687,7 +11722,7 @@ a.text-brand-700:hover svg {
   color: #27384b;
 }
 .accordion-item.accordion-item--white .accordion-header.active::after {
-  background: var(--brand-600) url("../img/icons/minus-white.svg") no-repeat center center/20px;
+  background: var(--brand-600) url("assets/img/icons/minus-white.svg") no-repeat center center/20px;
 }
 .accordion-item.accordion-item--white .accordion-content {
   color: #27384b;
@@ -11743,7 +11778,7 @@ a.text-brand-700:hover svg {
   content: "";
   width: 44px;
   height: 44px;
-  background: #fff url("../img/icons/plus.svg") no-repeat center center/20px;
+  background: #fff url("assets/img/icons/plus.svg") no-repeat center center/20px;
   flex-shrink: 0;
   border-radius: 50%;
   position: absolute;
@@ -11767,7 +11802,7 @@ a.text-brand-700:hover svg {
   color: var(--brand-500);
 }
 .accordion-header.active::after {
-  background: #fff url("../img/icons/minus.svg") no-repeat center center/20px;
+  background: #fff url("assets/img/icons/minus.svg") no-repeat center center/20px;
 }
 
 /* Скрываем контент по умолчанию */
@@ -11831,6 +11866,9 @@ a.text-brand-700:hover svg {
   .consultForm {
     margin-top: 24px;
   }
+}
+.consult .formText {
+  height: 115px;
 }
 
 .consultImageW {
@@ -13568,7 +13606,7 @@ a.text-brand-700:hover svg {
 
 .specItem {
   padding: 24px 20px 20px 24px;
-  background: url("../img/spec/spec-card.jpg") no-repeat center center/cover;
+  background: url("assets/img/spec/spec-card.jpg") no-repeat center center/cover;
   grid-column: 6 span;
   min-height: 164px;
   display: flex;
@@ -13789,7 +13827,7 @@ a.text-brand-700:hover svg {
   font-size: 20px;
   line-height: 165%;
   color: #27384b;
-  background: url("../img/icons/quote.svg") no-repeat left top/130px;
+  background: url("assets/img/icons/quote.svg") no-repeat left top/130px;
 }
 
 .individDoctorName {
@@ -13970,7 +14008,7 @@ a.text-brand-700:hover svg {
   border-radius: 0 120px 0 0;
   background: #587493;
   padding: 45px 45px 65px 45px;
-  background-image: url("../img/ind/ind-card.svg");
+  background-image: url("assets/img/ind/ind-card.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
@@ -14248,7 +14286,7 @@ a.text-brand-700:hover svg {
   color: #587493;
 }
 .service-type .wp-tabs__btn.active .accord-type-icon {
-  background: var(--surface-page) url("../img/icons/minus.svg") no-repeat center center/20px;
+  background: var(--surface-page) url("assets/img/icons/minus.svg") no-repeat center center/20px;
 }
 .service-type .wp-tabs__btn.active .wp-tabs__btn-body {
   display: block;
@@ -14290,7 +14328,7 @@ a.text-brand-700:hover svg {
   }
 }
 .service-type .wp-tabs__btn .accord-type-icon {
-  background: #fff url("../img/icons/plus.svg") no-repeat center center/20px;
+  background: #fff url("assets/img/icons/plus.svg") no-repeat center center/20px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -14330,6 +14368,9 @@ a.text-brand-700:hover svg {
     padding-left: 5px;
     padding-right: 12px;
   }
+}
+.service-type .wp-tabs__btn-body:not(:has(.stocksCardBtn)) .wp-tabs__btn-body-text {
+  margin-bottom: 0;
 }
 
 .service-include-image {
@@ -14465,7 +14506,7 @@ a.text-brand-700:hover svg {
 }
 .service-radio-item input:checked + label .rect {
   background-color: var(--brand-100);
-  background-image: url("../img/icons/check-blue.svg");
+  background-image: url("assets/img/icons/check-blue.svg");
 }
 .service-radio-item label {
   display: flex;
@@ -14856,7 +14897,7 @@ a.text-brand-700:hover svg {
   border: 1px solid #adbed0;
   border-radius: 4px 4px 16px 4px;
   background-color: #3d5877;
-  background-image: url("../img/icons/quiz-arrow.svg");
+  background-image: url("assets/img/icons/quiz-arrow.svg");
   background-repeat: no-repeat;
   background-size: 23px;
   background-position: center;
@@ -15094,6 +15135,10 @@ a.text-brand-700:hover svg {
   }
 }
 
+.quizInputHidden {
+  display: none;
+}
+
 .footer {
   background-color: var(--brand-600);
   overflow: hidden;
@@ -15167,7 +15212,7 @@ a.text-brand-700:hover svg {
     content: "";
     width: 15px;
     height: 10px;
-    background: url("../img/icons/foot-arrow-next.svg") no-repeat center center/15px;
+    background: url("assets/img/icons/foot-arrow-next.svg") no-repeat center center/15px;
     transition: transform 0.2s linear;
   }
 }

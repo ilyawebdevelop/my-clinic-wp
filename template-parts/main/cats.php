@@ -1,3 +1,6 @@
+<?php
+$ways = carbon_get_the_post_meta('main_ways');
+?>
 <section class="cats sect border-b-gray">
   <div class="container position-relative">
     <div class="sect-name">
@@ -9,200 +12,98 @@
 
       <div class="col-lg-5">
         <h2 class="h2 h2--lg mb-1">
-          <span>Все направления</span> стоматологии
+          <?php echo carbon_get_theme_option('categories_title'); ?>
         </h2>
         <div class="h4 mb-1 mb-lg-3 text-action">
-          в одной клинике
+          <?php echo carbon_get_theme_option('categories_subtitle'); ?>
         </div>
       </div>
       <div class="col-lg-7">
         <div class="text-secondary fz-lg-14">
-          В My Clinic мы внимательно выслушаем вас, проведем диагностику и предложим понятный план лечения. Без сложных
-          терминов, давления и ненужных процедур. Вместе выберем решение, которое подойдёт именно вам.
+          <?php echo carbon_get_theme_option('categories_descr'); ?>
         </div>
       </div>
     </div>
     <div class="grid-12 gap-0 catCardList">
-      <div class="col-md-6 col-xl-4">
-        <div class="catCard">
-          <div class="catCardContent">
-            <h4 class="catCardTitle h4">Лечение зубов</h4>
-            <ul>
-              <li>
-                <a href="#">Кариес</a>
-              </li>
-              <li>
-                <a href="#">Пульпит</a>
-              </li>
-              <li>
-                <a href="#">Периодонтит</a>
-              </li>
-              <li>
-                <a href="#">Лечение во сне</a>
-              </li>
-              <li>
-                <a href="#">Лечение каналов под микроскопом</a>
-              </li>
-            </ul>
-            <div class="catCardPrice">
-              <span class="catCardPriceText">от</span>
-              <span class="catCardPriceSum">5 500 ₽</span>
+
+      <?php
+      if (!empty($ways)) {
+        foreach ($ways as $related_item) {
+          if ($related_item['type'] == 'post') {
+            // получаем данные поста по его ID
+            global $post;
+            $post = get_post($related_item['id']);
+            setup_postdata($post);
+      ?>
+            <div class="col-md-6 col-xl-4">
+              <div class="catCard">
+                <div class="catCardContent">
+                  <h4 class="catCardTitle h4"><?php echo $post->post_title; ?></h4>
+
+                  <?php
+                  // параметры по умолчанию
+                  $my_inner_posts = get_posts(array(
+                    'numberposts' => -1,
+                    'post_type'   => 'page',
+                    // 'orderby'     => 'date',
+                    // 'order'       => 'DESC',   
+                    'post_parent' => $post->ID,
+                    'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                  ));
+
+                  if (!empty($my_inner_posts)) {
+                  ?>
+                    <ul>
+
+                      <?php
+                      global $inner_post;
+                      foreach ($my_inner_posts as $inner_post) {
+                        setup_postdata($inner_post);
+                      ?>
+                        <li>
+                          <a href="<?php echo get_permalink($inner_post->ID); ?>"><?php echo $inner_post->post_title; ?></a>
+                        </li>
+                      <?php
+                      }
+                      ?>
+
+                    </ul>
+                  <?php
+                  }
+                  ?>
+
+                  <?php
+                  if (!empty(carbon_get_the_post_meta('service_cat_price'))) {
+                  ?>
+                    <div class="catCardPrice">
+                      <span class="catCardPriceText">от</span>
+                      <span class="catCardPriceSum"><?php echo carbon_get_the_post_meta('service_cat_price'); ?> ₽</span>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                </div>
+                <img class="catCardImage" src="<?php echo carbon_get_the_post_meta('service_cat_img'); ?>" alt="image">
+                <a class="catCardLink" href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"></a>
+              </div>
             </div>
-          </div>
-          <img class="catCardImage" src="@img/admin/cat/image-1.png" alt="image">
-          <a class="catCardLink" href="#"></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="catCard">
-          <div class="catCardContent">
-            <h4 class="catCardTitle h4">Имплантация</h4>
-            <ul>
-              <li>
-                <a href="#">Один зуб</a>
-              </li>
-              <li>
-                <a href="#"> Несколько зубов</a>
-              </li>
-              <li>
-                <a href="#">All-on-4</a>
-              </li>
-              <li>
-                <a href="#">All-on-6</a>
-              </li>
-              <li>
-                <a href="#">Синус-лифтинг</a>
-              </li>
-              <li>
-                <a href="#">Костная пластика</a>
-              </li>
-            </ul>
-            <div class="catCardPrice">
-              <span class="catCardPriceText">от</span>
-              <span class="catCardPriceSum">15 200 ₽</span>
-            </div>
-          </div>
-          <img class="catCardImage" src="@img/admin/cat/image-2.png" alt="image">
-          <a class="catCardLink" href="#"></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="catCard">
-          <div class="catCardContent">
-            <h4 class="catCardTitle h4">Протезирование</h4>
-            <ul>
-              <li>
-                <a href="#">Коронки E-max</a>
-              </li>
-              <li>
-                <a href="#"> Вкладки</a>
-              </li>
-              <li>
-                <a href="#">Съемное протезирование</a>
-              </li>
-              <li>
-                <a href="#">Протезирование на имплантах</a>
-              </li>
-            </ul>
-            <div class="catCardPrice">
-              <span class="catCardPriceText">от</span>
-              <span class="catCardPriceSum">3 200 ₽</span>
-            </div>
-          </div>
-          <img class="catCardImage" src="@img/admin/cat/image-3.png" alt="image">
-          <a class="catCardLink" href="#"></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="catCard">
-          <div class="catCardContent">
-            <h4 class="catCardTitle h4">Исправление прикуса</h4>
-            <ul>
-              <li>
-                <a href="#">Металлические брекеты</a>
-              </li>
-              <li>
-                <a href="#"> Керамические брекеты</a>
-              </li>
-              <li>
-                <a href="#">Элайнеры</a>
-              </li>
-              <li>
-                <a href="#">Ортодонтические аппараты</a>
-              </li>
-            </ul>
-            <div class="catCardPrice">
-              <span class="catCardPriceText">от</span>
-              <span class="catCardPriceSum">3 200 ₽</span>
-            </div>
-          </div>
-          <img class="catCardImage" src="@img/admin/cat/image-4.png" alt="image">
-          <a class="catCardLink" href="#"></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="catCard">
-          <div class="catCardContent">
-            <h4 class="catCardTitle h4">Эстетика</h4>
-            <ul>
-              <li>
-                <a href="#">Виниры</a>
-              </li>
-              <li>
-                <a href="#">Отбеливание</a>
-              </li>
-              <li>
-                <a href="#">Реставрация</a>
-              </li>
-              <li>
-                <a href="#">Профессиональная</a>
-              </li>
-            </ul>
-            <div class="catCardPrice">
-              <span class="catCardPriceText">от</span>
-              <span class="catCardPriceSum">5 800 ₽</span>
-            </div>
-          </div>
-          <img class="catCardImage" src="@img/admin/cat/image-1.png" alt="image">
-          <a class="catCardLink" href="#"></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-xl-4">
-        <div class="catCard">
-          <div class="catCardContent">
-            <h4 class="catCardTitle h4">Детская стоматология</h4>
-            <ul>
-              <li>
-                <a href="#">Лечение зубов</a>
-              </li>
-              <li>
-                <a href="#">Удаление зубов</a>
-              </li>
-              <li>
-                <a href="#">Герметизация фиссур</a>
-              </li>
-              <li>
-                <a href="#">Профилактика </a>
-              </li>
-            </ul>
-            <div class="catCardPrice">
-              <span class="catCardPriceText">от</span>
-              <span class="catCardPriceSum">5 500 ₽</span>
-            </div>
-          </div>
-          <img class="catCardImage" src="@img/admin/cat/image-5.png" alt="image">
-          <a class="catCardLink" href="#"></a>
-        </div>
-      </div>
+      <?php
+          }
+        }
+        wp_reset_postdata(); // сброс
+      }
+      ?>
+
+
     </div>
-    <button class="button button--brand-100 w-100 justify-between pl-42 pl-lg-24 pr-16 text-action mt-3 h-lg-60">
+    <a href="/uslugi" class="button button--brand-100 w-100 justify-between pl-42 pl-lg-24 pr-16 text-action mt-3 h-lg-60">
       <span>посмотреть все услуги</span>
       <div class="icon">
         <svg>
-          <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+          <use xlink:href="<?= get_template_directory_uri() . '/assets/img/icons/icons.svg#arrow-link' ?>"></use>
         </svg>
       </div>
-    </button>
+    </a>
 
   </div>
 </section>

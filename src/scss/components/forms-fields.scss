@@ -31,13 +31,16 @@
     color: #27384b;
   }
 }
+
 .consultForm:has(.agreement input:checked) label .rect {
-   background-color: #738eaa;
+  background-color: #738eaa;
 }
+
 .agreement {
   font-size: 12px;
   line-height: 117%;
-  @media(max-width: 991px){
+
+  @media(max-width: 991px) {
     font-size: 14px;
     line-height: 135%;
   }
@@ -46,7 +49,7 @@
     &:checked {
       &+label {
         .rect {
-        background-color: #738eaa;
+          background-color: #738eaa;
         }
       }
     }
@@ -57,13 +60,14 @@
     align-items: center;
     column-gap: 12px;
     cursor: pointer;
-    @media(max-width: 575px){
+
+    @media(max-width: 575px) {
       align-items: flex-start;
     }
   }
 
   .rect {
-    border-radius: 50%;   
+    border-radius: 50%;
     background-color: rgba($color: #738eaa, $alpha: .2);
     width: 18px;
     height: 18px;
@@ -148,4 +152,15 @@
     background-size: 13px;
     background-image: url('@img/icons/check-white.svg');
   }
+}
+
+.agreement input[type='checkbox'] {
+  display: none;
+}
+.wpcf7-form-control-wrap:has(input[type='checkbox']) {
+	display: none;
+}
+.wpcf7 form .wpcf7-response-output {
+  margin-left: 0;
+  margin-right: 0;
 }

@@ -13,6 +13,20 @@ if (! defined('_S_VERSION')) {
 	define('_S_VERSION', '1.0.0');
 }
 
+add_action('after_setup_theme', 'crb_load');
+function crb_load()
+{
+	load_template(get_template_directory() . '/inc/carbon-fields/vendor/autoload.php');
+	\Carbon_Fields\Carbon_Fields::boot();
+}
+
+add_action('carbon_fields_register_fields', 'ast_register_custom_fields');
+function ast_register_custom_fields()
+{
+	require get_template_directory() . '/inc/custom-field-options/metabox.php';
+	require get_template_directory() . '/inc/custom-field-options/theme-options.php';
+}
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -48,12 +62,56 @@ function my_clinic_setup()
 		*/
 	add_theme_support('post-thumbnails');
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
-			'menu-1' => esc_html__('Primary', 'my-clinic'),
-		)
-	);
+	register_nav_menus(array(
+		'header_main' => 'Навигация основная',
+		'footer_1' => 'Подвал 1',
+		'footer_2' => 'Подвал 2',
+		'header_menu_main_nav' => 'Меню осн. в выпадашке',
+	));
+
+	function my_clinic_header_main_menu()
+	{
+		wp_nav_menu(
+			array(
+				'theme_location' => 'header_main',
+				'container'       => 'ul',
+				'menu_class'      => '',
+			)
+		);
+	}
+
+	function my_clinic_footer_1_menu()
+	{
+		wp_nav_menu(
+			array(
+				'theme_location' => 'footer_1',
+				'container'       => 'ul',
+				'menu_class'      => 'action-content',
+			)
+		);
+	}
+
+	function my_clinic_footer_2_menu()
+	{
+		wp_nav_menu(
+			array(
+				'theme_location' => 'footer_2',
+				'container'       => 'ul',
+				'menu_class'      => 'action-content',
+			)
+		);
+	}
+
+	function my_clinic_header_menu_nav_main()
+	{
+		wp_nav_menu(
+			array(
+				'theme_location' => 'header_menu_main_nav',
+				'container'       => 'ul',
+				'menu_class'      => '',
+			)
+		);
+	}
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
@@ -138,6 +196,23 @@ function my_clinic_widgets_init()
 }
 add_action('widgets_init', 'my_clinic_widgets_init');
 
+add_filter('upload_mimes', 'svg_upload_allow');
+
+# Добавляет SVG в список разрешенных для загрузки файлов.
+function svg_upload_allow($mimes)
+{
+	$mimes['svg']  = 'image/svg+xml';
+	return $mimes;
+}
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+## Удаляет "Рубрика: ", "Метка: " и т.д. из заголовка архива
+add_filter('get_the_archive_title', function ($title) {
+	return preg_replace('~^[^:]+: ~', '', $title);
+});
+
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 /**
  * Implement the Custom Header feature.

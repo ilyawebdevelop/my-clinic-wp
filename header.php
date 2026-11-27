@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,48 +13,60 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@200..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+		rel="stylesheet">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'my-clinic' ); ?></a>
+	<?php wp_body_open(); ?>
+	<div id="page" class="wrapper site">
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$my_clinic_description = get_bloginfo( 'description', 'display' );
-			if ( $my_clinic_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $my_clinic_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		<!-- Header -->
+		<header class="header header--absolute" id="header">
+			<div class="container">
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'my-clinic' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+				<div class="headerW">
+					<?php
+					get_template_part('template-parts/header/logo');
+					?>
+
+					<div class="d-block d-xl-none ml-auto">
+						<?php
+						get_template_part('template-parts/header/bvi-btn');
+						?>
+					</div>
+					<?php
+					get_template_part('template-parts/header/menu-btn');
+					get_template_part('template-parts/header/nav');
+					?>
+
+					<div class="headerContacts d-none d-xl-flex">
+						<div class="d-flex flex-column align-end">
+							<a href="/kontakty" class="text-white text--md underline-dotted underline"><?php echo carbon_get_theme_option('filials_num'); ?></a>
+							<div class="text-champagne text--md"><?php echo carbon_get_theme_option('crb_work'); ?></div>
+						</div>
+						<div class="d-flex flex-column">
+							<a class="text-white text--md" href="tel:<?php echo carbon_get_theme_option('crb_phone_clean'); ?>"><?php echo carbon_get_theme_option('crb_phone'); ?></a>
+							<a class="text-champagne text--md" href="#" data-fancybox data-src="#modalOrder">Перезвоните мне</a>
+						</div>
+						<?php
+						get_template_part('template-parts/header/bvi-btn');
+						?>
+					</div>
+				</div>
+			</div>
+
+		</header>
+		<?php
+		get_template_part('template-parts/menu');
+		?>

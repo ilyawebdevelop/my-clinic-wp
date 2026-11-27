@@ -3,7 +3,9 @@
 <div class="modal modalOrder" id="modalOrder">
 
   <div class="modalHead d-flex justify-between gap-4">
-    <h2 class="h2">Заказать <span>звонок</span></h2>
+    <h2 class="h2">
+      <?php echo carbon_get_theme_option('modal_order_title'); ?>
+    </h2>
     <button data-fancybox-close class="f-button is-close-btn" title="Close">
       <svg class="headerMenuBtn__border" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="46"></circle>
@@ -18,37 +20,18 @@
     <div class="grid-12 gap-0">
       <div class="col-lg-6">
         <p class="modalDescr mb-3 fz-lg-14">
-          Оставьте номер - администратор клиники вам перезвонит.
+          <?php echo carbon_get_theme_option('modal_order_descr'); ?>
         </p>
-        <img src="@img/admin/modal/image-1.jpg" alt="image" class="modalOrderImage d-none d-lg-block">
+        <img src="<?php echo carbon_get_theme_option('modal_order_image'); ?>" alt="image" class="modalOrderImage d-none d-lg-block">
       </div>
       <div class="col-lg-6">
         <div class="modalForm">
-          <div class="inputW mb-3">
-            <input type="text" class="formInput" placeholder="Ваше имя">
-          </div>
-          <div class="inputW mb-3">
-            <input type="tel" class="formInput" placeholder="Номер телефона" inputmode="text">
-          </div>
-          <button class="button button--brand-700 h-74 pr-16 pl-42 fz-15 w-100 mb-3">
-            <span class="d-block mx-auto">Заказать звонок</span>
-            <div class="icon ml-sm-auto">
-              <svg>
-                <use xlink:href="img/icons/icons.svg#arrow-link"></use>
-              </svg>
-            </div>
-          </button>
-          <div class="agreement">
-            <p>
-              Отправляя данную форму, вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
-            </p>
-          </div>
+          <?php echo do_shortcode('[contact-form-7 id="67f70ca" title="Модалка заказать звонок"]'); ?>
         </div>
       </div>
     </div>
-
-
   </div>
+
 </div>
 
 <!-- quiz -->
@@ -72,9 +55,9 @@
       <div class="col-lg-6">
         <div class="fz-20 text-uppercase text-action mb-2 mb-lg-5 modalQuiz-subtitle">
           Заявка принята
-        </div>       
-          <img src="@img/admin/quiz/image-1.jpg" alt="image" class="modalQuizImg d-block d-lg-none mb-2">
-  
+        </div>
+        <img src="@img/admin/quiz/image-1.jpg" alt="image" class="modalQuizImg d-block d-lg-none mb-2">
+
         <div class="h2 fz-40 text-no-uppercase text-brand-700 mb-2 mb-lg-4">
           Спасибо за ответы!
         </div>
@@ -127,26 +110,25 @@
   <div class="modalContent">
     <div class="grid-12 gap-4">
       <div class="col-lg-6 d-none d-lg-block">
-        <img src="@img/admin/modal/image-2.jpg" alt="image" class="modalOrderImage d-none d-lg-block">
+        <img src="<?php echo carbon_get_theme_option('crb_thanks_image'); ?>" alt="image" class="modalOrderImage d-none d-lg-block">
       </div>
       <div class="col-lg-6">
-        <h2 class="h2"><span class="d-block">Спасибо!</span> Заявка принята</h2>
+        <h2 class="h2">
+          <?php echo carbon_get_theme_option('crb_thanks_title'); ?>
+        </h2>
         <div class="modalDescr text--lg mb-3">
-          Мы свяжемся с вами, чтобы уточнить детали.
+          <?php echo carbon_get_theme_option('crb_thanks_descr'); ?>
         </div>
         <button class="button button--brand-700 h-74 pr-16 pl-42 fz-15 w-100 w-lg-fit" data-fancybox-close>
           <span class="d-block mx-auto">Хорошо</span>
           <div class="icon ml-sm-auto">
             <svg>
-              <use xlink:href="img/icons/icons.svg#arrow-link"></use>
+              <use xlink:href="<?= get_template_directory_uri() . '/assets/img/icons/icons.svg#arrow-link' ?>"></use>
             </svg>
           </div>
         </button>
-
-
       </div>
     </div>
-
-
   </div>
+  
 </div>
